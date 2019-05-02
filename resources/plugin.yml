@@ -1,0 +1,8 @@
+name: ChromaHub
+version: 1.0
+authors:
+  - _RealAlpah_
+  - _Lucax_
+main: eu.chromacube.hub.Hub
+depend:
+  - ChromaAPI
