@@ -1,5 +1,6 @@
 package eu.chromacube.hub.listeners;
 
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,6 +14,10 @@ public class PlayerJoin implements Listener {
 
         player.sendMessage("Ceci est un test !");
         player.setFoodLevel(20);
+        player.setHealth(20);
         player.setLevel(0);
+        player.setGameMode(GameMode.ADVENTURE);
+        player.getInventory().clear();
+        player.setExp(0);
     }
 }
