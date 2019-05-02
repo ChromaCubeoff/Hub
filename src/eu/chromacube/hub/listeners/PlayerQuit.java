@@ -10,7 +10,7 @@ public class PlayerQuit implements Listener {
      @EventHandler
     public void onquit(PlayerQuitEvent event){
          Player player = event.getPlayer();
-         
+
      }
 
 }
