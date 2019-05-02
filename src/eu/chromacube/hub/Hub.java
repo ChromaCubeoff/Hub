@@ -13,5 +13,5 @@ public class Hub extends JavaPlugin {
     public void onDisable() {
         super.onDisable();
     }
-    
+
 }
