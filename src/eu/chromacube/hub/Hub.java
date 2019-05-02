@@ -1,5 +1,6 @@
 package eu.chromacube.hub;
 
+import eu.chromacube.hub.manager.ClassManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Hub extends JavaPlugin {
@@ -8,6 +9,7 @@ public class Hub extends JavaPlugin {
     @Override
     public void onEnable() {
         hub = this;
+        new ClassManager(this).init();
         super.onEnable();
     }
 
