@@ -6,6 +6,8 @@ public class Hub extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+
         super.onEnable();
     }
 
