@@ -1,6 +1,7 @@
 package eu.chromacube.hub;
 
-import eu.chromacube.api.tools.CreativeInventory;
+import eu.chromacube.api.API;
+import eu.chromacube.api.tools.CreativeInventory.ICreativeInventory;
 import eu.chromacube.hub.gui.MenuNetwork;
 import eu.chromacube.hub.manager.ClassManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,9 +12,8 @@ public class Hub extends JavaPlugin {
     @Override
     public void onEnable() {
         hub = this;
+        API.get().registerMenu(new MenuNetwork());
         new ClassManager(this).init();
-        CreativeInventory creativeInventory = new CreativeInventory();
-        creativeInventory.registerMenu(new MenuNetwork());
         super.onEnable();
     }
 
