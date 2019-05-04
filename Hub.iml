@@ -20,14 +20,22 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/spigot/spigot-1.13.jar!/" />
+          <root url="jar://$MODULE_DIR$/../API/target/API-1.0-SNAPSHOT.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/spigot-1.13.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://C:/spigot/spigot-1.13.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/spigot-1.13.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Maven: org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT" level="project" />
   </component>
 </module>

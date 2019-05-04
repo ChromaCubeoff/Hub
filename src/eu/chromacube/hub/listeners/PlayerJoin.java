@@ -19,5 +19,6 @@ public class PlayerJoin implements Listener {
         player.setGameMode(GameMode.ADVENTURE);
         player.getInventory().clear();
         player.setExp(0);
+
     }
 }
