@@ -1,5 +1,6 @@
 package eu.chromacube.hub.listeners;
 
+import eu.chromacube.hub.manager.PlayerAddItem;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,6 +21,6 @@ public class PlayerJoin implements Listener {
         player.getInventory().clear();
         player.setExp(0);
 
-
+        new PlayerAddItem().onJoinPlayer(player);
     }
 }

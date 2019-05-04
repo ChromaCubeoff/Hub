@@ -1,9 +1,10 @@
 package eu.chromacube.hub;
 
+import com.comphenix.protocol.ProtocolLibrary;
 import eu.chromacube.api.API;
-import eu.chromacube.api.tools.CreativeInventory.ICreativeInventory;
 import eu.chromacube.hub.gui.MenuNetwork;
 import eu.chromacube.hub.manager.ClassManager;
+import eu.chromacube.hub.test.test;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Hub extends JavaPlugin {
@@ -14,6 +15,7 @@ public class Hub extends JavaPlugin {
         hub = this;
         API.get().registerMenu(new MenuNetwork());
         new ClassManager(this).init();
+        ProtocolLibrary.getProtocolManager().addPacketListener(new test(this));
         super.onEnable();
     }
 
