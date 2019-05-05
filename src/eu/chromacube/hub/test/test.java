@@ -4,13 +4,9 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
 import eu.chromacube.hub.Hub;
-import net.minecraft.server.v1_10_R1.MinecraftEncryption;
-import net.minecraft.server.v1_10_R1.MinecraftServer;
-import net.minecraft.server.v1_10_R1.PacketLoginInEncryptionBegin;
 import net.minecraft.server.v1_13_R1.MinecraftEncryption;
 import net.minecraft.server.v1_13_R1.MinecraftServer;
 import net.minecraft.server.v1_13_R1.PacketLoginInEncryptionBegin;
-import org.bukkit.craftbukkit.v1_10_R1.CraftServer;
 import org.bukkit.craftbukkit.v1_13_R1.CraftServer;
 
 import javax.crypto.SecretKey;
@@ -28,18 +24,10 @@ public class test extends PacketAdapter {
         this.plugin = plugin;
     }
 
-    @Override
-    public void onPacketSending(PacketEvent event) {
-        this.plugin.getLogger().info("Received LoginInEncryptionBegin from " + event.getPlayer().getName() + " [" + event.getPlayer().getUniqueId().toString() + "]");
-        String serverId = getServerId((PacketLoginInEncryptionBegin) event.getPacket().getHandle(), ((CraftServer) this.plugin.getServer()).getServer());
-        this.plugin.getLogger().info("Decrypted his sent server ID (\"" + serverId + "\") and requesting mojang check.");
-        this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, new SessChkRun(this.plugin, event.getPlayer().getName(), serverId));
-    }
-
     public String getServerId(PacketLoginInEncryptionBegin packet, MinecraftServer server) {
         // Decryption copied from "net.minecraft.server.v1_10_R1.LoginListener.a(PacketLoginInEncryptionBegin)"
-        SecretKey loginKey = ((PacketLoginInEncryptionBegin) packet).a(server.O().getPrivate());
-        return new BigInteger(MinecraftEncryption.a("", server.O().getPublic(), loginKey)).toString(16);
+        SecretKey loginKey = packet.a(server.G().getPrivate());
+        return new BigInteger(MinecraftEncryption.a("", server.G().getPublic(), loginKey)).toString(16);
     }
     public void checkSession(String name, String serverId) {
         try {

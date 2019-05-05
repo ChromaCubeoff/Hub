@@ -1,8 +1,10 @@
-name: ChromaHub
-version: 1.0
+name: Hub
+main: eu.chromacube.hub.Hub
+version: 1.0.0
+api-version: 1.13
 authors:
   - _RealAlpah_
   - _Lucax_
-main: eu.chromacube.hub.Hub
 depend:
-  - ChromaAPI
+  - API
+  - ProtocolLib
